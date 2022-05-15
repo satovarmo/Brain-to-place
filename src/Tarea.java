@@ -11,10 +11,12 @@ public class Tarea {
 	//private int Prioridad3;
 	
 	public Tarea(String titulo, String descripcion, String fecha, int prioridad) {
+		
 		setTitulo(titulo);
 		setDescripcion(descripcion);
 		setFecha(fecha);
 		setPrioridad(prioridad);
+		
 	}
 	public String getTitulo() {
 		return titulo;
