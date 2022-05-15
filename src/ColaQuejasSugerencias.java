@@ -1,5 +1,9 @@
 
 public class ColaQuejasSugerencias {
-	QuejaSugerencia[] colaQuejasSugerencias;
-	int cola = 0;
+	private QuejaSugerencia[] colaQuejasSugerencias;
+	private int cola;
+	
+	public ColaQuejasSugerencias() {
+		this.cola = 0;
+	}
 }

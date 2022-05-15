@@ -5,14 +5,14 @@ public class Nodo {
 	private Nodo anterior;
 
 	public Nodo(Tarea tarea) {
-		this.tarea = tarea;
+		setTarea(tarea);
 		this.siguiente = null;
 		this.anterior = null;
 	}
 	public Nodo(Tarea tarea, Nodo siguiente, Nodo anterior) {
-		this.tarea = tarea;
-		this.siguiente = siguiente;
-		this.anterior = anterior;
+		setTarea(tarea);
+		setSiguiente(siguiente);
+		setAnterior(anterior);
 	}
 	public Tarea getTarea() {
 		return tarea;
