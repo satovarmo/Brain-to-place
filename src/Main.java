@@ -19,6 +19,7 @@ public class Main {
 			
 			Scanner lector = new Scanner(System.in);
 		    String entrada1 = lector.nextLine();
+			int indice;
 			
 			switch(entrada1) {
 			  case "1":
@@ -36,12 +37,46 @@ public class Main {
 				  
 				  break;
 			  case "2":
+			  		tareas.printLista();
+					if(!tareas.estaVacia()){
+						System.out.println("Ingrese el indice de la tarea a completar");
+						indice = lector.nextInt();
+						tareas.completarTarea(indice);
+					}
 				  break;
 			  case "3":
+			  		tareas.printLista();
+					if(!tareas.estaVacia()){
+						System.out.println("Ingrese el indice de la tarea a eliminar");
+						indice = lector.nextInt();
+						tareas.eliminarTarea(indice);
+					}
 				  break;
 			  case "4":
+			        tareas.printLista();
+					if(!tareas.estaVacia()){
+						System.out.println("Ingrese el indice de la tarea a modificar");
+						indice = lector.nextInt();
+						System.out.println("Ingrese el nuevo titulo de la tarea");
+						titulo = lector.nextLine();
+						lector.nextLine();
+						System.out.println("Ingrese la nueva descripcion de la tarea");
+						descripcion = lector.nextLine();
+						System.out.println("Ingrese la nueva fecha máxima de la tarea");
+						fecha = lector.nextLine();
+						System.out.println("Ingrese la nueva prioridad de la tarea");
+						prioridad = lector.nextInt();
+						tareas.modificarTarea(indice, titulo, descripcion, fecha, prioridad);
+					}
+					
 				  break;
 			  case "5":
+			  		tareas.printLista();
+				    if(!tareas.estaVacia()){
+						System.out.println("Ingreses el indice de la tarea a ver");
+						indice = lector.nextInt();
+						tareas.verTarea(indice);
+					}
 				  break;
 			  case "6":
 				  break;

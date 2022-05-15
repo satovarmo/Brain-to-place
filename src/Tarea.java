@@ -14,7 +14,7 @@ public class Tarea {
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 		this.fecha = fecha;
-		this.prioridad = prioridad;
+		this.prioridad = prioridad; 
 	}
 	public String getTitulo() {
 		return titulo;
