@@ -4,6 +4,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		ListaEnlazadaTareas tareas = new ListaEnlazadaTareas();
+		Historial historial = new Historial();
 		
 		boolean salir = false;
 		while(salir ==  false) {
@@ -79,6 +80,7 @@ public class Main {
 					}
 				  break;
 			  case "6":
+				  historial.printHistorial();
 				  break;
 			  case "7":
 				  break;
