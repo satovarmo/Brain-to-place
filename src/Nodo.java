@@ -6,8 +6,8 @@ public class Nodo {
 
 	public Nodo(Tarea tarea) {
 		setTarea(tarea);
-		this.siguiente = null;
-		this.anterior = null;
+		setSiguiente(null);
+		setAnterior(null);
 	}
 	public Nodo(Tarea tarea, Nodo siguiente, Nodo anterior) {
 		setTarea(tarea);
