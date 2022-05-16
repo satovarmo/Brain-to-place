@@ -116,18 +116,19 @@ public class ListaEnlazadaTareas {
 		}
   	}
 
-	// public void verTareas(){
-	// 	if(!this.estaVacia()){
-	// 		int i = 0;
-	// 		Nodo nodotarea = this.getCabeza();
-	// 		/*while(i <= indice){
-	// 			nodotarea = nodotarea.getSiguiente();
-	// 			i++;
-	// 		}
-	// 		System.out.println(indice+" | "+nodotarea.getTarea().getTitulo()+" | "+nodotarea.getTarea().getDescripcion()+" | "+nodotarea.getTarea().getFecha()+" | "+nodotarea.getTarea().getPrioridad());
-	// 	}else{
-	// 		System.out.println("No hay tareas para ver");
-	// 	}
-    //}
+	/*public void verTareas(){
+		if(!this.estaVacia()){
+			int i = 0;
+			Nodo nodotarea = this.getCabeza();
+			while(i <= indice){
+				nodotarea = nodotarea.getSiguiente();
+				i++;
+			}
+			System.out.println(indice+" | "+nodotarea.getTarea().getTitulo()+" | "+nodotarea.getTarea().getDescripcion()+" | "+nodotarea.getTarea().getFecha()+" | "+nodotarea.getTarea().getPrioridad());
+		}
+  		else{
+  			System.out.println("No hay tareas para ver");
+		}
+	}
+	*/
 }
-

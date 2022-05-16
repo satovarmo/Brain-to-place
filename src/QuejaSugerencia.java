@@ -24,10 +24,8 @@ public class QuejaSugerencia {
 		this.detalles = detalles;
 	}
         
-        @Override
-        public String toString(){
-            return "Queja implementada por el usuaruio "+usuario;
-        }
-        
-        
+    @Override
+    public String toString(){
+        return "Queja implementada por el usuaruio "+usuario;
+    }
 }
