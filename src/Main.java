@@ -43,7 +43,7 @@ public class Main {
 					if(!tareas.estaVacia()){
 						System.out.println("Ingrese el indice de la tarea a completar");
 						indice = lector.nextInt();
-						tareas.completarTarea(indice);
+						tareas.completarTarea(indice, historial);
 					}
 				  break;
 			  case "3":
@@ -74,11 +74,6 @@ public class Main {
 				  break;
 			  case "5":
 			  		tareas.printLista();
-				    if(!tareas.estaVacia()){
-						System.out.println("Ingreses el indice de la tarea a ver");
-						indice = lector.nextInt();
-						tareas.verTarea(indice);
-					}
 				  break;
 			  case "6":
 				  historial.printHistorial();
