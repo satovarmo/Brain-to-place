@@ -3,7 +3,7 @@ import java.util.Scanner;
 //Implementamos las quejas y sugerencias como colas para que la primera en ser resuelta sea la primera en haber sido agregada (FIFO)
 
 public class ColaQuejasSugerencias {
-        //Usamos una clase auxiliar de Nodo para las quejas, con un enlace simple
+        //Usamos una clase auxiliar de Nodo para las quejas, con un enlace simple.
         public class NodoQueja{
             private QuejaSugerencia Queja;
             private NodoQueja next;
