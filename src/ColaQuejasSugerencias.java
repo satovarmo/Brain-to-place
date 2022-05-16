@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class ColaQuejasSugerencias {
         //Usamos una clase auxiliar de Nodo para las quejas, con un enlace simple
-       //Probando el commit xd
         public class NodoQueja{
             private QuejaSugerencia Queja;
             private NodoQueja next;
