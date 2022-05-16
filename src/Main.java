@@ -5,6 +5,7 @@ public class Main {
 		
 		ListaEnlazadaTareas tareas = new ListaEnlazadaTareas();
 		Historial historial = new Historial();
+                ColaQuejasSugerencias ColaQyS=new ColaQuejasSugerencias();
 		
 		boolean salir = false;
 		while(salir ==  false) {
@@ -83,6 +84,7 @@ public class Main {
 				  historial.printHistorial();
 				  break;
 			  case "7":
+                                  ColaQyS.menuQuejas();
 				  break;
 			  case "8":
 				  salir = true;
