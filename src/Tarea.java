@@ -1,6 +1,5 @@
 
 public class Tarea {
-
 	private String titulo;
 	private String descripcion;
 	private String fecha;
@@ -11,7 +10,6 @@ public class Tarea {
 	//private int Prioridad3;
 	
 	public Tarea(String titulo, String descripcion, String fecha, int prioridad) {
-		
 		setTitulo(titulo);
 		setDescripcion(descripcion);
 		setFecha(fecha);
