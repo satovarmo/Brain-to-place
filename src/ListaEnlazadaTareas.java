@@ -70,6 +70,7 @@ public class ListaEnlazadaTareas {
 	}
 
 	private void enviarAHistorial(Tarea tarea) {
+		historial.insert(tarea);
 	}
 
 	public void eliminarTarea(int indice){		
