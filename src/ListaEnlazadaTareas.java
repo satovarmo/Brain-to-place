@@ -52,13 +52,13 @@ public class ListaEnlazadaTareas {
 		}
 	}
 
-	public void completarTarea(int indice){
+	public void completarTarea(int indice,Historial h){
 		if(!this.estaVacia()){
 			Nodo nodotarea = this.getCabeza();
 			int contador = 0;
 			while(nodotarea != null){
 				if(contador == indice){
-					enviarAHistorial(nodotarea.getTarea());
+					enviarAHistorial(nodotarea.getTarea(),h);
 					break;
 				}
 				nodotarea = nodotarea.getSiguiente();
@@ -69,7 +69,7 @@ public class ListaEnlazadaTareas {
 		}
 	}
 
-	private void enviarAHistorial(Tarea tarea) {
+	private void enviarAHistorial(Tarea tarea, Historial historial) {
 		historial.insert(tarea);
 	}
 
