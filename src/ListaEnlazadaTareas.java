@@ -64,7 +64,8 @@ public class ListaEnlazadaTareas {
 				nodotarea = nodotarea.getSiguiente();
 				contador++;
 			}
-		}else{
+		}
+		else{
 			System.out.println("No hay tareas para completar");
 		}
 	}
@@ -83,14 +84,17 @@ public class ListaEnlazadaTareas {
 			if(nodotarea.getSiguiente() == null){
 				this.cola = nodotarea.getAnterior();
 				nodotarea.getAnterior().setSiguiente(null);
-			}else if(nodotarea.getAnterior() == null){
+			}
+			else if(nodotarea.getAnterior() == null){
 				this.cabeza = nodotarea.getSiguiente();
 				nodotarea.getSiguiente().setAnterior(null);
-			}else{
+			}
+			else{
 				nodotarea.getAnterior().setSiguiente(nodotarea.getSiguiente());
 				nodotarea.getSiguiente().setAnterior(nodotarea.getAnterior());
 			}
-		}else{
+		}
+		else{
 			System.out.println("No hay tareas para eliminar");
 		}
 	}
@@ -105,7 +109,8 @@ public class ListaEnlazadaTareas {
 			nodotarea.getTarea().setDescripcion(descripcion);
 			nodotarea.getTarea().setFecha(fecha);
 			nodotarea.getTarea().setPrioridad(prioridad);
-		}else{
+		}
+  		else{
 			System.out.println("No hay tareas para modificar");
 		}
   	}
@@ -119,7 +124,8 @@ public class ListaEnlazadaTareas {
 				i++;
 			}
 			System.out.println(indice+" | "+nodotarea.getTarea().getTitulo()+" | "+nodotarea.getTarea().getDescripcion()+" | "+nodotarea.getTarea().getFecha()+" | "+nodotarea.getTarea().getPrioridad());
-		}else{
+		}
+		else{
 			System.out.println("No hay tareas para ver");
 		}
 	}
