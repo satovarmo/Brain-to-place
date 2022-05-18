@@ -42,6 +42,23 @@ public class ListaEnlazadaTareas {
 		}
 	}
 
+	public void ordenarPorPrioridadDescendente(){
+		Nodo actual = cabeza;
+		while(actual != null){
+			Nodo siguiente = actual.getSiguiente();
+			while(siguiente != null){
+				if(actual.getTarea().getPrioridad() < siguiente.getTarea().getPrioridad()){
+					Tarea aux = actual.getTarea();
+					actual.setTarea(siguiente.getTarea());
+					siguiente.setTarea(aux);
+				}
+				siguiente = siguiente.getSiguiente();
+			}
+			actual = actual.getSiguiente();
+		}
+	}
+
+
 	//Probando métodos
 
 	public void printLista(){
@@ -61,7 +78,7 @@ public class ListaEnlazadaTareas {
 	public void completarTarea(int indice, Historial historial){
 		if(!this.estaVacia()){
 			Nodo nodotarea = this.getCabeza();
-			int contador = 0;
+			int contador = 1;
 			while(nodotarea != null){
 				if(contador == indice){
 					historial.insert(nodotarea.getTarea());
