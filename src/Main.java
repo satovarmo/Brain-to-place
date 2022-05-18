@@ -17,7 +17,8 @@ public class Main {
 			System.out.println("5. Tareas Pendientes");
 			System.out.println("6. Historial de Tareas");
 			System.out.println("7. Quejas o Sugerencias");
-			System.out.println("8. Salir\n");
+			System.out.println("8. Pruebas de rendimiento");
+			System.out.println("9. Salir\n");
 			
 			Scanner lector = new Scanner(System.in);
 		    String entrada1 = lector.nextLine();
@@ -82,6 +83,9 @@ public class Main {
 				  ColaQyS.menuQuejas();
 				  break;
 			  case "8":
+				  Pruebas.test();
+				  break;
+			  case "9":
 				  salir = true;
 				  break;
 			  default:
