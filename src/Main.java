@@ -79,7 +79,7 @@ public class Main {
 				  historial.printHistorial();
 				  break;
 			  case "7":
-                                  ColaQyS.menuQuejas();
+				  ColaQyS.menuQuejas();
 				  break;
 			  case "8":
 				  salir = true;
