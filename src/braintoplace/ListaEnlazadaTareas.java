@@ -1,7 +1,10 @@
+package braintoplace;
+
+
 public class ListaEnlazadaTareas {
 	private Nodo cabeza;
 	private Nodo cola;
-	
+
 	public ListaEnlazadaTareas(){
 		this.cabeza = null;
 		this.cola = null;
@@ -35,7 +38,7 @@ public class ListaEnlazadaTareas {
 	public void imprimirListaEnlazada(Nodo puntero) {
 		if(puntero != null) {
 			if(puntero != cabeza) {
-				System.out.println(",");	
+				System.out.println(",");
 			}
 			System.out.println(puntero.getTarea().getTitulo()+","+puntero.getTarea().getDescripcion()+","+puntero.getTarea().getFecha()+","+puntero.getTarea().getPrioridad());
 			imprimirListaEnlazada(puntero.getSiguiente());
@@ -57,8 +60,6 @@ public class ListaEnlazadaTareas {
 			actual = actual.getSiguiente();
 		}
 	}
-
-
 	//Probando métodos
 
 	public void printLista(){
@@ -69,10 +70,36 @@ public class ListaEnlazadaTareas {
 				System.out.println(indice+" | "+nodotarea.getTarea().getTitulo()+" | "+nodotarea.getTarea().getDescripcion()+" | "+nodotarea.getTarea().getFecha()+" | "+nodotarea.getTarea().getPrioridad());
 				nodotarea = nodotarea.getSiguiente();
 				indice++;
-		}
+			}
 		}else{
 			System.out.println("Lista vacia");
 		}
+	}
+
+	public int buscarTarea(String tit){
+		if(!this.estaVacia()){
+			Nodo nodotarea = this.getCabeza();
+			int indice=1;
+			while(!nodotarea.getTarea().getTitulo().equals(tit)){
+				nodotarea=nodotarea.getSiguiente();
+				indice++;
+			}
+			return indice;
+		}
+		return -1;
+	}
+
+
+	public Tarea buscarTareaConIndice(int indice){
+		if(!this.estaVacia()){
+			Nodo nodotarea = this.getCabeza();
+			for(int i = 1; i < indice; i++){
+				nodotarea = nodotarea.getSiguiente();
+			}
+			return nodotarea.getTarea();
+
+		}
+		return null;
 	}
 
 	public void completarTarea(int indice, Historial historial){
@@ -92,8 +119,7 @@ public class ListaEnlazadaTareas {
 			System.out.println("No hay tareas para completar");
 		}
 	}
-
-	public void eliminarTarea(int indice){		
+	public void eliminarTarea(int indice){
 		if(!this.estaVacia()){
 			Nodo nodotarea = this.getCabeza();
 			for(int i = 1; i < indice; i++){
@@ -117,9 +143,8 @@ public class ListaEnlazadaTareas {
 			System.out.println("No hay tareas para eliminar");
 		}
 	}
-
-  	public void modificarTarea(int indice, String titulo, String descripcion, String fecha, int prioridad){
-  		if(!this.estaVacia()){
+	public void modificarTarea(int indice, String titulo, String descripcion, Fecha fecha, int prioridad){
+		if(!this.estaVacia()){
 			Nodo nodotarea = this.getCabeza();
 			for(int i = 1; i < indice; i++){
 				nodotarea = nodotarea.getSiguiente();
@@ -131,9 +156,9 @@ public class ListaEnlazadaTareas {
 		}else{
 			System.out.println("No hay tareas para modificar");
 		}
-  	}
+	}
 
-	/*public void verTareas(){
+	public void verTarea(int indice){
 		if(!this.estaVacia()){
 			int i = 0;
 			Nodo nodotarea = this.getCabeza();
@@ -142,10 +167,8 @@ public class ListaEnlazadaTareas {
 				i++;
 			}
 			System.out.println(indice+" | "+nodotarea.getTarea().getTitulo()+" | "+nodotarea.getTarea().getDescripcion()+" | "+nodotarea.getTarea().getFecha()+" | "+nodotarea.getTarea().getPrioridad());
-		}
-  		else{
-  			System.out.println("No hay tareas para ver");
+		}else{
+			System.out.println("No hay tareas para ver");
 		}
 	}
-	*/
 }

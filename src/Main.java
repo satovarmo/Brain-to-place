@@ -2,7 +2,9 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		
+
+		MotorInterfaz mot=new MotorInterfaz();
+		/*
 		ListaEnlazadaTareas tareas = new ListaEnlazadaTareas();
 		Historial historial = new Historial();
                 ColaQuejasSugerencias ColaQyS=new ColaQuejasSugerencias();
@@ -90,6 +92,6 @@ public class Main {
 				  break;
 			  default:
 			}
-		}
+		}*/
 	}
 }
