@@ -1,3 +1,4 @@
+import Interfaz.MotorInterfaz;
 import java.util.Scanner;
 
 public class Main {
