@@ -47,7 +47,7 @@ public final class MotorInterfaz {
     public JFrame ventana=new JFrame();
     public JPanel primerPanel=new JPanel();
     public JPanel panelAuxiliar=new JPanel();
-    public JLabel Título=new JLabel("Brain To Place");
+    public JLabel Titulo=new JLabel("Brain To Place");
     public JLabel iconoTitulo=new JLabel();
     public JButton agregarTarea=new JButton();
     public JButton completarTarea=new JButton();
@@ -62,7 +62,7 @@ public final class MotorInterfaz {
     public JTextArea descripcionTarea=new JTextArea();
     public JComboBox Dia=new JComboBox();
     public JComboBox Mes=new JComboBox();
-    public JComboBox Año=new JComboBox();
+    public JComboBox Ano=new JComboBox();
     public JComboBox Prioridad=new JComboBox();
     public JButton agregar=new JButton("Agrega tu tarea");
     public JButton prueba=new JButton();
@@ -83,7 +83,7 @@ public final class MotorInterfaz {
     public JButton verDetallesHist=new JButton("Mira los detalles de tu tarea");
     public JButton BorrarHist=new JButton("Borrar historial");
 
-    public JButton AñadirQueja=new JButton("Añadir");
+    public JButton AnadirQueja=new JButton("Añadir");
     public JButton verDetallesQueja=new JButton("Detalles");
     public JButton resolverQueja=new JButton("Resolver 1ra queja");
 
@@ -116,18 +116,31 @@ public final class MotorInterfaz {
         primerPanel.removeAll();
         ventana.repaint();
         switch (n){
-            case 1 -> PrimeraPantalla();
-            case 2 -> {
-                ReiniciarIngTarea();
+            case 1: 
+            	PrimeraPantalla();
+            	break;
+            case 2:
+            	ReiniciarIngTarea();
                 PantallaAgregar();
-            }
-            case 3 -> PantallaCancelar();
-            case 4 -> PantallaCompletar();
-            case 5 -> PantallaModificar();
-            case 6 -> PantallaPendientes();
-            case 7 -> PantallaHistorial();
-            case 8 -> PantallaQuejas();
-
+                break;
+            case 3:
+            	PantallaCancelar();
+                break;
+            case 4:
+            	PantallaCompletar();
+                break;
+            case 5:
+            	PantallaModificar();
+                break;
+            case 6:
+            	PantallaPendientes();
+                break;
+            case 7:
+            	PantallaHistorial();
+                break;
+            case 8:
+            	PantallaQuejas();
+                break;
         }
     }
 
@@ -152,14 +165,14 @@ public final class MotorInterfaz {
         Dia.addItem("Día");
 
         Mes.addItem("Mes");
-        Año.addItem("Año");
+        Ano.addItem("Año");
         Prioridad.addItem("Prioridad");
         for(int j=1;j<=12;j++){
             Mes.addItem(j);
         }
 
         for(int j=2022;j<=2025;j++){
-            Año.addItem(j);
+            Ano.addItem(j);
         }
 
 
@@ -219,7 +232,7 @@ public final class MotorInterfaz {
     public void PrimeraPantalla(){
 
         primerPanel.add(iconoTitulo);
-        primerPanel.add(Título);
+        primerPanel.add(Titulo);
         primerPanel.add(agregarTarea);
         primerPanel.add(eliminarTarea);
         primerPanel.add(completarTarea);
@@ -230,12 +243,12 @@ public final class MotorInterfaz {
 
         ventana.add(primerPanel);
 
-        Título.setBounds(120,20,600,120);
-        Título.setFont(new Font("Coffee Extra",0,60));
-        Título.setBorder(null);
-        Título.setBackground(null);
-        Título.setForeground(new Color(255,0,0));
-        Título.setVisible(true);
+        Titulo.setBounds(120,20,600,120);
+        Titulo.setFont(new Font("Coffee Extra",0,60));
+        Titulo.setBorder(null);
+        Titulo.setBackground(null);
+        Titulo.setForeground(new Color(255,0,0));
+        Titulo.setVisible(true);
 
         iconoTitulo.setBounds(570,50,60,60);
         iconoTitulo.setBorder(null);
@@ -337,8 +350,8 @@ public final class MotorInterfaz {
     public void PantallaAgregar(){
         UsarPanelAux();
 
-        Título.setBounds(80,20,600,120);
-        primerPanel.add(Título);
+        Titulo.setBounds(80,20,600,120);
+        primerPanel.add(Titulo);
 
         tituloTarea.setBounds(150,150,270,30);
         tituloTarea.setText("Ingresa el título de tu tarea");
@@ -387,11 +400,11 @@ public final class MotorInterfaz {
         Mes.setVisible(true);
         Mes.addActionListener(evt);
 
-        Año.setBounds(155,210, 80,30);
-        Año.setFont(new Font("Comic Sans MS",1,17));
-        Año.setForeground(new Color(0,0,0));
-        Año.setVisible(true);
-        Año.addActionListener(evt);
+        Ano.setBounds(155,210, 80,30);
+        Ano.setFont(new Font("Comic Sans MS",1,17));
+        Ano.setForeground(new Color(0,0,0));
+        Ano.setVisible(true);
+        Ano.addActionListener(evt);
 
 
         Prioridad.setBounds(235,420, 100,30);
@@ -407,7 +420,7 @@ public final class MotorInterfaz {
 
         primerPanel.add(Mes);
 
-        primerPanel.add(Año);
+        primerPanel.add(Ano);
 
 
         primerPanel.add(Prioridad);
@@ -437,8 +450,8 @@ public final class MotorInterfaz {
     public void PantallaCancelar(){
         UsarPanelAux();
 
-        Título.setBounds(80,20,600,120);
-        primerPanel.add(Título);
+        Titulo.setBounds(80,20,600,120);
+        primerPanel.add(Titulo);
 
         ImprimirTareasSelc();
 
@@ -457,8 +470,8 @@ public final class MotorInterfaz {
     public void PantallaCompletar(){
         UsarPanelAux();
 
-        Título.setBounds(80,20,600,120);
-        primerPanel.add(Título);
+        Titulo.setBounds(80,20,600,120);
+        primerPanel.add(Titulo);
 
         ImprimirTareasSelc();
 
@@ -477,11 +490,10 @@ public final class MotorInterfaz {
     public void PantallaModificar(){
         UsarPanelAux();
 
-        Título.setBounds(80,20,600,120);
-        primerPanel.add(Título);
+        Titulo.setBounds(80,20,600,120);
+        primerPanel.add(Titulo);
 
         ImprimirTareasSelc();
-
 
         ElegirModificar.setFont(new Font("Comic Sans MS",0,20));
         ElegirModificar.setBounds(160,470,250,60);
@@ -500,8 +512,8 @@ public final class MotorInterfaz {
 
         UsarPanelAux();
 
-        Título.setBounds(80,20,600,120);
-        primerPanel.add(Título);
+        Titulo.setBounds(80,20,600,120);
+        primerPanel.add(Titulo);
 
         tituloTarea.setBounds(150,150,270,30);
         tituloTarea.setText(t.getTitulo());
@@ -538,12 +550,12 @@ public final class MotorInterfaz {
         Separador2.setVisible(true);
         primerPanel.add(Separador2);
 
-
-        Dia.setBounds(335,210, 80,30);
-        Dia.setFont(new Font("Comic Sans MS",1,17));
-        Dia.setForeground(new Color(0,0,0));
-        Dia.setVisible(true);
-        Dia.setSelectedItem(t.getFecha().getDia());
+        Ano.setBounds(155,210, 80,30);
+        Ano.setFont(new Font("Comic Sans MS",1,17));
+        Ano.setForeground(new Color(0,0,0));
+        Ano.setVisible(true);
+        Ano.addActionListener(evt);
+        Ano.setSelectedItem(t.getFecha().getAno());
 
         Mes.setBounds(245,210, 80,30);
         Mes.setFont(new Font("Comic Sans MS",1,17));
@@ -551,14 +563,13 @@ public final class MotorInterfaz {
         Mes.setVisible(true);
         Mes.addActionListener(evt);
         Mes.setSelectedItem(t.getFecha().getMes());
-
-        Año.setBounds(155,210, 80,30);
-        Año.setFont(new Font("Comic Sans MS",1,17));
-        Año.setForeground(new Color(0,0,0));
-        Año.setVisible(true);
-        Año.addActionListener(evt);
-        Año.setSelectedItem(t.getFecha().getAño());
-
+        
+        Dia.setBounds(335,210, 80,30);
+        Dia.setFont(new Font("Comic Sans MS",1,17));
+        Dia.setForeground(new Color(0,0,0));
+        Dia.setVisible(true);
+        Dia.addActionListener(evt);
+        Dia.setSelectedItem(t.getFecha().getDia());
 
         Prioridad.setBounds(235,420, 100,30);
         Prioridad.setFont(new Font("Comic Sans MS",1,17));
@@ -568,14 +579,9 @@ public final class MotorInterfaz {
         Prioridad.addActionListener(evt);
         Prioridad.setSelectedItem(t.getPrioridad());
 
-
-        primerPanel.add(Dia);
-
-
+        primerPanel.add(Ano);
         primerPanel.add(Mes);
-
-        primerPanel.add(Año);
-
+        primerPanel.add(Dia);
 
         primerPanel.add(Prioridad);
 
@@ -593,8 +599,8 @@ public final class MotorInterfaz {
     public void PantallaPendientes(){
         UsarPanelAux();
 
-        Título.setBounds(80,20,600,120);
-        primerPanel.add(Título);
+        Titulo.setBounds(80,20,600,120);
+        primerPanel.add(Titulo);
 
         ImprimirTareasSelc();
 
@@ -613,8 +619,8 @@ public final class MotorInterfaz {
     public void PantallaHistorial(){
         UsarPanelAux();
 
-        Título.setBounds(80,20,600,120);
-        primerPanel.add(Título);
+        Titulo.setBounds(80,20,600,120);
+        primerPanel.add(Titulo);
 
         ImprimirHistorialSelc();
 
@@ -643,21 +649,21 @@ public final class MotorInterfaz {
     public void PantallaQuejas(){
         UsarPanelAux();
 
-        Título.setBounds(80,20,600,120);
-        primerPanel.add(Título);
+        Titulo.setBounds(80,20,600,120);
+        primerPanel.add(Titulo);
 
         ImprimirQuejSug();
 
 
-        AñadirQueja.setFont(new Font("Comic Sans MS",0,16));
-        AñadirQueja.setBounds(8,470,180,60);
-        AñadirQueja.setBackground(new Color(0,0,0));
-        AñadirQueja.setForeground(new Color(90,160,255));
-        AñadirQueja.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        AñadirQueja.setFocusPainted(false);
-        AñadirQueja.removeActionListener(evt);
-        AñadirQueja.addActionListener(evt);
-        primerPanel.add(AñadirQueja);
+        AnadirQueja.setFont(new Font("Comic Sans MS",0,16));
+        AnadirQueja.setBounds(8,470,180,60);
+        AnadirQueja.setBackground(new Color(0,0,0));
+        AnadirQueja.setForeground(new Color(90,160,255));
+        AnadirQueja.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        AnadirQueja.setFocusPainted(false);
+        AnadirQueja.removeActionListener(evt);
+        AnadirQueja.addActionListener(evt);
+        primerPanel.add(AnadirQueja);
 
         verDetallesQueja.setFont(new Font("Comic Sans MS",0,16));
         verDetallesQueja.setBounds(197,470,180,60);
@@ -696,7 +702,7 @@ public final class MotorInterfaz {
         descripcionTarea.setForeground(Color.white);
         dias(0);
         Mes.setSelectedIndex(0);
-        Año.setSelectedIndex(0);
+        Ano.setSelectedIndex(0);
         Prioridad.setSelectedIndex(0);
     }
     public void ReiniciarIngQueja(){

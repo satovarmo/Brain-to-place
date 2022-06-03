@@ -2,7 +2,7 @@
 package braintoplace;
 
 public class Fecha {
-    private int dia, mes, año;
+    private int dia, mes, ano;
 
     public Fecha(){
         this(1,1,2000);
@@ -10,7 +10,7 @@ public class Fecha {
     public Fecha(int d, int m, int a){
         this.dia=d;
         this.mes=m;
-        this.año=a;
+        this.ano=a;
     }
 
     public void setDia(int d){
@@ -19,8 +19,8 @@ public class Fecha {
     public void setMes(int m){
         this.mes=m;
     }
-    public void setAño(int a){
-        this.año=a;
+    public void setAno(int a){
+        this.ano=a;
     }
 
     public int getDia(){
@@ -29,14 +29,14 @@ public class Fecha {
     public int getMes(){
         return this.mes;
     }
-    public int getAño(){
-        return this.año;
+    public int getAno(){
+        return this.ano;
     }
 
     public Fecha fechaMenor(Fecha f){
-        if(this.año<f.año){
+        if(this.ano<f.ano){
             return this;
-        }else if(this.año>f.año){
+        }else if(this.ano>f.ano){
             return f;
         }else{
             if(this.mes<f.mes){
@@ -56,7 +56,7 @@ public class Fecha {
 
     @Override
     public String toString(){
-        return this.dia+"/"+this.mes+"/"+this.año;
+        return this.dia+"/"+this.mes+"/"+this.ano;
     }
 
 }

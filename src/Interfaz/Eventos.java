@@ -32,7 +32,7 @@ public class Eventos implements ActionListener, FocusListener{
             if(motint.Mes.getSelectedIndex()!=0){
                 if((int) motint.Mes.getSelectedItem()==1 || (int)motint.Mes.getSelectedItem()==3 || (int)motint.Mes.getSelectedItem()==5 || (int)motint.Mes.getSelectedItem()==7 || (int)motint.Mes.getSelectedItem()==8 || (int)motint.Mes.getSelectedItem()==10  || (int)motint.Mes.getSelectedItem()==12){
                     motint.dias(31);
-                }else if((int) motint.Mes.getSelectedItem()==2 && motint.Año.getSelectedIndex()!=0 && (int)motint.Año.getSelectedItem()==2024){
+                }else if((int) motint.Mes.getSelectedItem()==2 && motint.Ano.getSelectedIndex()!=0 && (int)motint.Ano.getSelectedItem()==2024){
                     motint.dias(29);
                 }else if((int) motint.Mes.getSelectedItem()==2){
                     motint.dias(28);
@@ -42,18 +42,18 @@ public class Eventos implements ActionListener, FocusListener{
                 motint.dias(0);
 
         }
-        if(e.getSource()==motint.Año && motint.Mes.getSelectedIndex()!=0 && motint.Año.getSelectedIndex()!=0){
-            if((int) motint.Año.getSelectedItem()==2024 && (int) motint.Mes.getSelectedItem()==2){
+        if(e.getSource()==motint.Ano && motint.Mes.getSelectedIndex()!=0 && motint.Ano.getSelectedIndex()!=0){
+            if((int) motint.Ano.getSelectedItem()==2024 && (int) motint.Mes.getSelectedItem()==2){
                 motint.dias(29);
             }else if((int) motint.Mes.getSelectedItem()==2){
                 motint.dias(28);
             }
         }
         if(e.getSource()==motint.agregar){
-            if(motint.tituloTarea.getText().equals("Ingresa el título de tu tarea") || motint.descripcionTarea.getText().equals("Ingresa la descripción de tu\n                   tarea") || motint.Dia.getSelectedIndex()==0 || motint.Mes.getSelectedIndex()==0 || motint.Año.getSelectedIndex()==0 || motint.Prioridad.getSelectedIndex()==0){
+            if(motint.tituloTarea.getText().equals("Ingresa el título de tu tarea") || motint.descripcionTarea.getText().equals("Ingresa la descripción de tu\n                   tarea") || motint.Dia.getSelectedIndex()==0 || motint.Mes.getSelectedIndex()==0 || motint.Ano.getSelectedIndex()==0 || motint.Prioridad.getSelectedIndex()==0){
                 JOptionPane.showMessageDialog(null, "Por favor rellene todos los campos");
             }else{
-                Tarea tarea = new Tarea(motint.tituloTarea.getText(), motint.descripcionTarea.getText(), new Fecha((int) motint.Dia.getSelectedItem(),(int) motint.Mes.getSelectedItem(),(int) motint.Año.getSelectedItem()), (int) motint.Prioridad.getSelectedItem());
+                Tarea tarea = new Tarea(motint.tituloTarea.getText(), motint.descripcionTarea.getText(), new Fecha((int) motint.Dia.getSelectedItem(),(int) motint.Mes.getSelectedItem(),(int) motint.Ano.getSelectedItem()), (int) motint.Prioridad.getSelectedItem());
                 motint.listaTareas.agregarNodoInicio(tarea);
                 motint.ReiniciarIngTarea();
             }
@@ -111,7 +111,7 @@ public class Eventos implements ActionListener, FocusListener{
             if(!motint.listaTareas.estaVacia()){
                 motint.CambiarPantalla(5);
             }else
-                JOptionPane.showMessageDialog(null, "Tu lista de tareas está vacía, no puedes modificar ninguna.");
+                JOptionPane.showMessageDialog(null, "Tu lista de tareas esta� vacia, no puedes modificar ninguna.");
 
         }
         if(e.getSource()==motint.ElegirModificar){
@@ -130,7 +130,7 @@ public class Eventos implements ActionListener, FocusListener{
                 JOptionPane.showMessageDialog(null, "Por favor rellene todos los campos");
             }else{
                 //tareas.modificarTarea(indice, titulo, descripcion, fecha, prioridad);
-                motint.listaTareas.modificarTarea(indexModificacion,motint.tituloTarea.getText(), motint.descripcionTarea.getText(), new Fecha((int) motint.Dia.getSelectedItem(),(int) motint.Mes.getSelectedItem(),(int) motint.Año.getSelectedItem()), (int) motint.Prioridad.getSelectedItem());
+                motint.listaTareas.modificarTarea(indexModificacion,motint.tituloTarea.getText(), motint.descripcionTarea.getText(), new Fecha((int) motint.Dia.getSelectedItem(),(int) motint.Mes.getSelectedItem(),(int) motint.Ano.getSelectedItem()), (int) motint.Prioridad.getSelectedItem());
                 JOptionPane.showMessageDialog(null, "Tarea modificada");
                 motint.ReiniciarIngTarea();
                 motint.CambiarPantalla(5);
@@ -204,7 +204,7 @@ public class Eventos implements ActionListener, FocusListener{
                 JOptionPane.showMessageDialog(null,"No hay ninguna queja para solucionar");
             }
         }
-        if(e.getSource()==motint.AñadirQueja){
+        if(e.getSource()==motint.AnadirQueja){
             motint.VentanaQueja();
         }
         if(e.getSource()==motint.agregarQueja){
