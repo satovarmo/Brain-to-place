@@ -2,7 +2,7 @@ package braintoplace;
 import java.util.ArrayList;
 
 public class HeapTareas {
-    private ArrayList<Integer> heapArray;
+    private ArrayList<Tarea> heapArray;
     private int size;
 
     public HeapTareas(){
@@ -25,34 +25,34 @@ public class HeapTareas {
     //Intercambiando nodos
     public void swap(int first, int second)
     {
-        int holder;
+        Tarea holder;
         holder = heapArray.get(first);
         heapArray.set(first, heapArray.get(second));
         heapArray.set(second, holder);
     }
 
-    public void insert(int element){
+    public void insert(Tarea element){
         heapArray.add(element);
         
         // Traverse up and fix violated property
         int current = size;
-        while (heapArray.get(current) > heapArray.get(padre(current))) {
+        while (heapArray.get(current).getPrioridad() > heapArray.get(padre(current)).getPrioridad()) {
             swap(current, padre(current));
             current = padre(current);
         }
         size++;
     }
 
-    public double geometricMean(){
-        int result = 1;
-        for (int i = 15; i < size; i++){
-            result *= heapArray.get(i);
-        }
-        return Math.pow(result, 1/size);
-    }
+    // public double geometricMean(){
+    //     int result = 1;
+    //     for (int i = 15; i < size; i++){
+    //         result *= heapArray.get(i);
+    //     }
+    //     return Math.pow(result, 1/size);
+    // }
 
-    public int extractMax(){
-        int max = heapArray.get(0);
+    public Tarea extractMax(){
+        Tarea max = heapArray.get(0);
         heapArray.set(0, heapArray.get(size-1));
         size--;
         siftDown(0);
@@ -67,7 +67,9 @@ public class HeapTareas {
     }
 
     public void changePriority(int index, int priority){
-        heapArray.set(index, priority);
+        Tarea tarea = heapArray.get(index);
+        tarea.setPrioridad(priority);
+        heapArray.set(index, tarea);
         siftUp(index);
         siftDown(index);
     }
@@ -75,7 +77,7 @@ public class HeapTareas {
     public void siftUp(int index){
         try {
             //Si el elemento actual tiene mayor prioridad que su padre entonces se intercambian
-            if(heapArray.get(index) > heapArray.get(padre(index))){
+            if(heapArray.get(index).getPrioridad() > heapArray.get(padre(index)).getPrioridad()){
                 swap(index, padre(index));
                 siftUp(index);
             }
@@ -87,11 +89,11 @@ public class HeapTareas {
     public void siftDown(int index){
         //Si el número en pos máx es menor que sus hijos se hace un siftdown
         try {
-            if (heapArray.get(index) < heapArray.get(getIzqChild(index)) || heapArray.get(index) < heapArray.get(getDerChild(index))) {
+            if (heapArray.get(index).getPrioridad() < heapArray.get(getIzqChild(index)).getPrioridad() || heapArray.get(index).getPrioridad() < heapArray.get(getDerChild(index)).getPrioridad()) {
  
                 //Se intercambia con el mayor de los hijos
                 try {
-                    if (heapArray.get(getIzqChild(index)) > heapArray.get(getDerChild(index))) {
+                    if (heapArray.get(getIzqChild(index)).getPrioridad() > heapArray.get(getDerChild(index)).getPrioridad()) {
                         swap(index, getIzqChild(index));
                         siftDown(getIzqChild(index));
                     }
@@ -109,7 +111,7 @@ public class HeapTareas {
         }
     }
 
-    public int peekMax(){
+    public Tarea peekMax(){
         return heapArray.get(0);
     }
 
@@ -118,13 +120,13 @@ public class HeapTareas {
        
       for(int i=0;i<size/2;i++){
  
-            System.out.print("Parent Node : " + heapArray.get(i) );
+            System.out.print("Parent Node : " + heapArray.get(i).getTitulo() );
              
             if(getIzqChild(i) < size) //if the child is out of the bound of the array
-               System.out.print( " Left Child Node: " + heapArray.get(getIzqChild(i)));
+               System.out.print( " Left Child Node: " + heapArray.get(getIzqChild(i)).getTitulo());
              
             if(getDerChild(i) < size) //if the right child index must not be out of the index of the array
-                System.out.print(" Right Child Node: "+ heapArray.get(getDerChild(i)));
+                System.out.print(" Right Child Node: "+ heapArray.get(getDerChild(i)).getTitulo());
                 System.out.println(); //for new line
              
         }
