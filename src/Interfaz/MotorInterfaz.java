@@ -752,6 +752,42 @@ public final class MotorInterfaz {
 
         Nodo nodotarea = historial.cabeza;
         int indice=1;
+
+        // heapTareas.ordenarDescendente();
+        // for(int i=0;i<heapTareas.size()/2;i++){
+
+        //     JRadioButton jrb = new JRadioButton(heapTareas.find(i).getTitulo());
+        //     jrb.setForeground(Color.black);
+        //     jrb.setFont(new Font("Comic Sans MS",0,20));
+        //     jrb.setBounds(40,35*++i,250,30);
+        //     jrb.setBackground(null);
+        //     bg.add(jrb);
+        //     panelTareas.add(jrb);
+
+        //     //Izq
+        //     if(heapTareas.getIzqChild(i) < heapTareas.size()){
+        //         JRadioButton jrbI = new JRadioButton(heapTareas.find(i).getTitulo());
+        //         jrb.setForeground(Color.black);
+        //         jrb.setFont(new Font("Comic Sans MS",0,20));
+        //         jrb.setBounds(40,35*++i,250,30);
+        //         jrb.setBackground(null);
+        //         bg.add(jrbI);
+        //         panelTareas.add(jrbI);
+        //     }
+
+        //     if(heapTareas.getDerChild(i) < heapTareas.size()){
+        //         JRadioButton jrbD = new JRadioButton(heapTareas.find(i).getTitulo());
+        //         jrb.setForeground(Color.black);
+        //         jrb.setFont(new Font("Comic Sans MS",0,20));
+        //         jrb.setBounds(40,35*++i,250,30);
+        //         jrb.setBackground(null);
+        //         bg.add(jrbD);
+        //         panelTareas.add(jrbD);
+        //     }            
+        // }
+
+        // panelTareas.setBorder(null);
+        // primerPanel.add(panelTareas);
         while(nodotarea != null){
             JRadioButton jrb = new JRadioButton(nodotarea.getTarea().getTitulo());
             jrb.setForeground(Color.black);
