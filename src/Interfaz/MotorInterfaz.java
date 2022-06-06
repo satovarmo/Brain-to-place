@@ -49,6 +49,7 @@ public final class MotorInterfaz {
     public JPanel panelAuxiliar=new JPanel();
     public JLabel Titulo=new JLabel("Brain To Place");
     public JLabel iconoTitulo=new JLabel();
+    
     public JButton agregarTarea=new JButton();
     public JButton completarTarea=new JButton();
     public JButton modificarTarea=new JButton();
@@ -83,7 +84,7 @@ public final class MotorInterfaz {
     public JButton verDetallesHist=new JButton("Mira los detalles de tu tarea");
     public JButton BorrarHist=new JButton("Borrar historial");
 
-    public JButton AnadirQueja=new JButton("Añadir");
+    public JButton AnadirQueja=new JButton("A\u00f1adir");
     public JButton verDetallesQueja=new JButton("Detalles");
     public JButton resolverQueja=new JButton("Resolver 1ra queja");
 
@@ -474,8 +475,7 @@ public final class MotorInterfaz {
         primerPanel.add(Titulo);
 
         ImprimirTareasSelc();
-
-
+        
         completar.setFont(new Font("Comic Sans MS",0,20));
         completar.setBounds(160,470,250,60);
         completar.setBackground(new Color(0,0,0));

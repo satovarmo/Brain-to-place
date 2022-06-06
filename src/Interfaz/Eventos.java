@@ -50,7 +50,7 @@ public class Eventos implements ActionListener, FocusListener{
             }
         }
         if(e.getSource()==motint.agregar){
-            if(motint.tituloTarea.getText().equals("Ingresa el título de tu tarea") || motint.descripcionTarea.getText().equals("Ingresa la descripción de tu\n                   tarea") || motint.Dia.getSelectedIndex()==0 || motint.Mes.getSelectedIndex()==0 || motint.Ano.getSelectedIndex()==0 || motint.Prioridad.getSelectedIndex()==0){
+            if(motint.tituloTarea.getText().equals("Ingresa el t\u00edtulo de tu tarea") || motint.descripcionTarea.getText().equals("Ingresa la descripci\u00f3n de tu\n                   tarea") || motint.Dia.getSelectedIndex()==0 || motint.Mes.getSelectedIndex()==0 || motint.Ano.getSelectedIndex()==0 || motint.Prioridad.getSelectedIndex()==0){
                 JOptionPane.showMessageDialog(null, "Por favor rellene todos los campos");
             }else{
                 Tarea tarea = new Tarea(motint.tituloTarea.getText(), motint.descripcionTarea.getText(), new Fecha((int) motint.Dia.getSelectedItem(),(int) motint.Mes.getSelectedItem(),(int) motint.Ano.getSelectedItem()), (int) motint.Prioridad.getSelectedItem());
@@ -67,7 +67,7 @@ public class Eventos implements ActionListener, FocusListener{
             if(!motint.listaTareas.estaVacia()){
                 motint.CambiarPantalla(3);
             }else
-                JOptionPane.showMessageDialog(null, "Tu lista de tareas está vacía, no puedes eliminar.");
+                JOptionPane.showMessageDialog(null, "Tu lista de tareas est\u00e1 vacía, no puedes eliminar.");
 
         }
         if(e.getSource()==motint.eliminar){
@@ -89,7 +89,7 @@ public class Eventos implements ActionListener, FocusListener{
             if(!motint.listaTareas.estaVacia()){
                 motint.CambiarPantalla(4);
             }else
-                JOptionPane.showMessageDialog(null, "Tu lista de tareas está vacía, no puedes completar ninguna.");
+                JOptionPane.showMessageDialog(null, "Tu lista de tareas est\u00e1 vacía, no puedes completar ninguna.");
 
         }
         if(e.getSource()==motint.completar){
@@ -126,7 +126,7 @@ public class Eventos implements ActionListener, FocusListener{
             }
         }
         if(e.getSource()==motint.modificar){
-            if(motint.tituloTarea.getText().equals("Ingresa el título de tu tarea") || motint.descripcionTarea.getText().equals("Ingresa la descripción de tu\n                   tarea") || motint.Dia.getSelectedIndex()==0 || motint.Mes.getSelectedIndex()==0 || motint.Prioridad.getSelectedIndex()==0){
+            if(motint.tituloTarea.getText().equals("Ingresa el t\u00edtulo de tu tarea") || motint.descripcionTarea.getText().equals("Ingresa la descripci\u00f3n de tu\n                   tarea") || motint.Dia.getSelectedIndex()==0 || motint.Mes.getSelectedIndex()==0 || motint.Prioridad.getSelectedIndex()==0){
                 JOptionPane.showMessageDialog(null, "Por favor rellene todos los campos");
             }else{
                 //tareas.modificarTarea(indice, titulo, descripcion, fecha, prioridad);
@@ -141,7 +141,7 @@ public class Eventos implements ActionListener, FocusListener{
             if(!motint.listaTareas.estaVacia()){
                 motint.CambiarPantalla(6);
             }else
-                JOptionPane.showMessageDialog(null, "Tu lista de tareas está vacía, no tienes tareas pendientes.");
+                JOptionPane.showMessageDialog(null, "Tu lista de tareas est\u00e1 vacía, no tienes tareas pendientes.");
         }
         if(e.getSource()==motint.verDetalles){
             for (Enumeration<AbstractButton> buttons = motint.bg.getElements(); buttons.hasMoreElements();) {
@@ -158,7 +158,7 @@ public class Eventos implements ActionListener, FocusListener{
             if(!motint.historial.isEmpty()){
                 motint.CambiarPantalla(7);
             }else
-                JOptionPane.showMessageDialog(null, "Tu historial está vacío, no has completado ninguna tarea.");
+                JOptionPane.showMessageDialog(null, "Tu historial est\u00e1 vac\u00edo, no has completado ninguna tarea.");
         }
         if(e.getSource()==motint.verDetallesHist){
             for (Enumeration<AbstractButton> buttons = motint.bg.getElements(); buttons.hasMoreElements();) {
@@ -208,7 +208,7 @@ public class Eventos implements ActionListener, FocusListener{
             motint.VentanaQueja();
         }
         if(e.getSource()==motint.agregarQueja){
-            if(motint.usuarioQueja.getText().equals("Ingresa el tusuario") || motint.descripcionQueja.getText().equals("Ingresa la descripción de tu\n                   queja")){
+            if(motint.usuarioQueja.getText().equals("Ingresa el tusuario") || motint.descripcionQueja.getText().equals("Ingresa la descripci\u00f3n de tu\n                   queja")){
                 JOptionPane.showMessageDialog(null, "Por favor rellene todos los campos");
             }else{
                 QuejaSugerencia q = new QuejaSugerencia(motint.usuarioQueja.getText(), motint.descripcionQueja.getText());
@@ -222,12 +222,12 @@ public class Eventos implements ActionListener, FocusListener{
 
     @Override
     public void focusGained(FocusEvent e) {
-        if(e.getSource()==motint.tituloTarea && motint.tituloTarea.getText().equals("Ingresa el título de tu tarea")){
+        if(e.getSource()==motint.tituloTarea && motint.tituloTarea.getText().equals("Ingresa el t\u00edtulo de tu tarea")){
             motint.tituloTarea.setText("");
             motint.tituloTarea.setForeground(Color.black);
         }
 
-        if(e.getSource()==motint.descripcionTarea && motint.descripcionTarea.getText().equals("Ingresa la descripción de tu\n                   tarea")){
+        if(e.getSource()==motint.descripcionTarea && motint.descripcionTarea.getText().equals("Ingresa la descripci\u00f3n de tu\n                   tarea")){
             motint.descripcionTarea.setText("");
             motint.descripcionTarea.setForeground(Color.black);
         }
@@ -238,7 +238,7 @@ public class Eventos implements ActionListener, FocusListener{
             motint.usuarioQueja.setForeground(Color.black);
         }
 
-        if(e.getSource()==motint.descripcionQueja && motint.descripcionQueja.getText().equals("Ingresa la descripción de tu\n                   queja")){
+        if(e.getSource()==motint.descripcionQueja && motint.descripcionQueja.getText().equals("Ingresa la descripci\u00f3n de tu\n                   queja")){
             motint.descripcionQueja.setText("");
             motint.descripcionQueja.setForeground(Color.black);
         }
@@ -247,12 +247,12 @@ public class Eventos implements ActionListener, FocusListener{
     @Override
     public void focusLost(FocusEvent e) {
         if(e.getSource()==motint.tituloTarea && motint.tituloTarea.getText().equals("")){
-            motint.tituloTarea.setText("Ingresa el título de tu tarea");
+            motint.tituloTarea.setText("Ingresa el t\u00edtulo de tu tarea");
             motint.tituloTarea.setForeground(Color.white);
         }
 
         if(e.getSource()==motint.descripcionTarea && motint.descripcionTarea.getText().equals("")){
-            motint.descripcionTarea.setText("Ingresa la descripción de tu\n                   tarea");
+            motint.descripcionTarea.setText("Ingresa la descripci\u00f3n de tu\n                   tarea");
             motint.descripcionTarea.setForeground(Color.white);
         }
 
@@ -261,7 +261,7 @@ public class Eventos implements ActionListener, FocusListener{
             motint.usuarioQueja.setForeground(Color.white);
         }
         if(e.getSource()==motint.descripcionQueja && motint.descripcionQueja.getText().equals("")){
-            motint.descripcionQueja.setText("Ingresa la descripción de tu\n                   queja");
+            motint.descripcionQueja.setText("Ingresa la descripci\u00f3n de tu\n                   queja");
             motint.descripcionQueja.setForeground(Color.white);
         }
     }
