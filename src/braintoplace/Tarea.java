@@ -1,7 +1,7 @@
 package braintoplace;
 
 
-public class Tarea {
+public class Tarea implements Comparable<Tarea>{
 
 	private String titulo;
 	private String descripcion;
@@ -44,6 +44,21 @@ public class Tarea {
 	public void setPrioridad(int prioridad) {
 		this.prioridad = prioridad;
 	}
+
+	@Override
+	public int compareTo(Tarea tarea){
+		int result = 0;
+        if(this.getPrioridad() > tarea.getPrioridad()){
+			result = 1;
+        }
+		if(this.getPrioridad() < tarea.getPrioridad()){
+			result = -1;
+		}
+		if(this.getPrioridad() == tarea.getPrioridad()){
+			result = 0;
+		}
+		return result;
+    }
 
 	@Override
 	public String toString(){

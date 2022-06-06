@@ -12,7 +12,7 @@ public class Main {
 		Tarea t1 = new Tarea("Taller 2", "", new Fecha(), 2);
 		Tarea t2 = new Tarea("Evaluación 1", "", new Fecha(), 4);
 		Tarea t3 = new Tarea("Tarea coordenadas polares", "", new Fecha(), 3);
-		Tarea t4 = new Tarea("revisión parcial 2", "", new Fecha(), 3);
+		Tarea t4 = new Tarea("revisión parcial 2", "", new Fecha(), 1);
 		Tarea t5 = new Tarea("ensayo crítico", "", new Fecha(), 5);
 		priorizador.insert(t1);
 		priorizador.insert(t2);
