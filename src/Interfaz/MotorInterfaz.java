@@ -28,7 +28,7 @@ import javax.swing.JTextField;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public final class MotorInterfaz {
-    ListaEnlazadaTareas listaTareas = new ListaEnlazadaTareas();
+    ListaTareasDobleEnlace listaTareas = new ListaTareasDobleEnlace();
     Historial historial=new Historial();
     ColaQuejasSugerencias QuejaSug=new ColaQuejasSugerencias();
     List<QuejaSugerencia> listaQuejas;
@@ -722,7 +722,7 @@ public final class MotorInterfaz {
         panelTareas.setLayout(null);
         panelTareas.setBackground(new Color(90,160,255));
 
-        Nodo nodotarea = listaTareas.getCabeza();
+        NodoDobleEnlace nodotarea = listaTareas.getCabeza();
         int indice=1;
         while(nodotarea != null){
             JRadioButton jrb = new JRadioButton(nodotarea.getTarea().getTitulo());
@@ -750,7 +750,7 @@ public final class MotorInterfaz {
         panelTareas.setLayout(null);
         panelTareas.setBackground(new Color(90,160,255));
 
-        Nodo nodotarea = historial.cabeza;
+        NodoDobleEnlace nodotarea = historial.cabeza;
         int indice=1;
         while(nodotarea != null){
             JRadioButton jrb = new JRadioButton(nodotarea.getTarea().getTitulo());

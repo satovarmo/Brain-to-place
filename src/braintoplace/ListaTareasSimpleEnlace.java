@@ -1,41 +1,97 @@
 package braintoplace;
 
+public class ListaTareasSimpleEnlace {
+	private NodoSimpleEnlace cabeza;
 
-public class ListaEnlazadaTareas {
-	private Nodo cabeza;
-	private Nodo cola;
-
-	public ListaEnlazadaTareas(){
+	public ListaTareasSimpleEnlace(){
 		this.cabeza = null;
-		this.cola = null;
 	}
 
-	public Nodo getCabeza() {
-		return cabeza;
-	}
-
-	public boolean estaVacia(){
+	public boolean vacia(){
 		return this.cabeza == null;
 	}
 
-	public void agregarNodoInicio(Tarea tarea) {
-		Nodo nuevoNodo = new Nodo(tarea);
-		if(!this.estaVacia()){
-			nuevoNodo.setSiguiente(cabeza);
-			cabeza.setAnterior(nuevoNodo);
-			cabeza = nuevoNodo;
-		}else{
-			cabeza = nuevoNodo;
-			cola = nuevoNodo;
+	public void agregarPrincipio(NodoSimpleEnlace nodo) {
+		if(!this.vacia()){
+			nodo.setSiguiente(cabeza);
+		}
+		cabeza = nodo;
+	}
+	public void agregarFinal(NodoSimpleEnlace nodo) {
+		NodoSimpleEnlace referencia = cabeza;
+		while(referencia.getSiguiente()!=null) {
+			referencia = referencia.getSiguiente();
+		}
+		referencia.setSiguiente(nodo);
+	}
+	public void agregarIndice(int indice, NodoSimpleEnlace nodo) {
+		NodoSimpleEnlace referencia = cabeza;
+		int bandera = 1;
+		while(bandera!=indice) {
+			referencia = referencia.getSiguiente();
+			bandera++;
+		}
+		nodo.setSiguiente(referencia.getSiguiente());
+		referencia.setSiguiente(nodo);
+	}
+	public NodoSimpleEnlace extraerPrincipio() {
+		return cabeza;
+	}
+	public NodoSimpleEnlace extraerFinal() {
+		NodoSimpleEnlace referencia = cabeza;
+		while(referencia.getSiguiente()!=null) {
+			referencia = referencia.getSiguiente();
+		}
+		return referencia;
+	}
+	public NodoSimpleEnlace extraerIndice(int indice) {
+		NodoSimpleEnlace referencia = cabeza;
+		int bandera = 1;
+		while(bandera!=indice) {
+			referencia = referencia.getSiguiente();
+			bandera++;
+		}
+		return referencia;
+	}
+	
+	public void removerPrincipio() {
+		cabeza = cabeza.getSiguiente();
+	}
+	public void removerFinal() {
+		NodoSimpleEnlace referencia = cabeza;
+		while(referencia.getSiguiente()!=null) {
+			if(referencia.getSiguiente().getSiguiente()==null) {
+				referencia.setSiguiente(null);
+			}
+			referencia = referencia.getSiguiente();
 		}
 	}
-	public void agregarNodoFinal(Tarea tarea) {
-		Nodo nuevoNodo = new Nodo(tarea);
-		nuevoNodo.setAnterior(cola);
-		cola.setSiguiente(nuevoNodo);
-		cola = nuevoNodo;
+	public void removerIndice(int indice) {
+		if(indice==1) {
+			removerPrincipio();
+		}
+		else {
+			NodoSimpleEnlace referencia = cabeza;
+			int bandera = 1;
+			while(bandera!=indice-1) {
+				referencia = referencia.getSiguiente();
+				bandera++;
+			}
+			referencia.setSiguiente(null);
+		}
 	}
-	public void imprimirListaEnlazada(Nodo puntero) {
+	
+	public NodoSimpleEnlace getCabeza() {
+		return cabeza;
+	}
+	public void setCabeza(NodoSimpleEnlace nodo) {
+		this.cabeza = nodo;
+	}
+	
+	//otros metodos x revisar
+	
+	
+	public void imprimirListaEnlazada(NodoDobleEnlace puntero) {
 		if(puntero != null) {
 			if(puntero != cabeza) {
 				System.out.println(",");
@@ -46,9 +102,9 @@ public class ListaEnlazadaTareas {
 	}
 
 	public void ordenarPorPrioridadDescendente(){
-		Nodo actual = cabeza;
+		NodoDobleEnlace actual = cabeza;
 		while(actual != null){
-			Nodo siguiente = actual.getSiguiente();
+			NodoDobleEnlace siguiente = actual.getSiguiente();
 			while(siguiente != null){
 				if(actual.getTarea().getPrioridad() < siguiente.getTarea().getPrioridad()){
 					Tarea aux = actual.getTarea();
@@ -63,22 +119,23 @@ public class ListaEnlazadaTareas {
 	//Probando métodos
 
 	public void printLista(){
-		if(!this.estaVacia()){
-			Nodo nodotarea = this.getCabeza();
+		if(!this.vacia()){
+			NodoDobleEnlace nodotarea = this.getCabeza();
 			int indice = 1;
 			while(nodotarea != null){
 				System.out.println(indice+" | "+nodotarea.getTarea().getTitulo()+" | "+nodotarea.getTarea().getDescripcion()+" | "+nodotarea.getTarea().getFecha()+" | "+nodotarea.getTarea().getPrioridad());
 				nodotarea = nodotarea.getSiguiente();
 				indice++;
 			}
-		}else{
+		}
+		else{
 			System.out.println("Lista vacia");
 		}
 	}
 
 	public int buscarTarea(String tit){
-		if(!this.estaVacia()){
-			Nodo nodotarea = this.getCabeza();
+		if(!this.vacia()){
+			NodoDobleEnlace nodotarea = this.getCabeza();
 			int indice=1;
 			while(!nodotarea.getTarea().getTitulo().equals(tit)){
 				nodotarea=nodotarea.getSiguiente();
@@ -91,8 +148,8 @@ public class ListaEnlazadaTareas {
 
 
 	public Tarea buscarTareaConIndice(int indice){
-		if(!this.estaVacia()){
-			Nodo nodotarea = this.getCabeza();
+		if(!this.vacia()){
+			NodoDobleEnlace nodotarea = this.getCabeza();
 			for(int i = 1; i < indice; i++){
 				nodotarea = nodotarea.getSiguiente();
 			}
@@ -103,8 +160,8 @@ public class ListaEnlazadaTareas {
 	}
 
 	public void completarTarea(int indice, Historial historial){
-		if(!this.estaVacia()){
-			Nodo nodotarea = this.getCabeza();
+		if(!this.vacia()){
+			NodoDobleEnlace nodotarea = this.getCabeza();
 			int contador = 1;
 			while(nodotarea != null){
 				if(contador == indice){
@@ -115,13 +172,14 @@ public class ListaEnlazadaTareas {
 				nodotarea = nodotarea.getSiguiente();
 				contador++;
 			}
-		}else{
+		}
+		else{
 			System.out.println("No hay tareas para completar");
 		}
 	}
 	public void eliminarTarea(int indice){
-		if(!this.estaVacia()){
-			Nodo nodotarea = this.getCabeza();
+		if(!this.vacia()){
+			NodoDobleEnlace nodotarea = this.getCabeza();
 			for(int i = 1; i < indice; i++){
 				nodotarea = nodotarea.getSiguiente();
 			}
@@ -139,13 +197,14 @@ public class ListaEnlazadaTareas {
 				nodotarea.getAnterior().setSiguiente(nodotarea.getSiguiente());
 				nodotarea.getSiguiente().setAnterior(nodotarea.getAnterior());
 			}
-		}else{
+		}
+		else{
 			System.out.println("No hay tareas para eliminar");
 		}
 	}
 	public void modificarTarea(int indice, String titulo, String descripcion, Fecha fecha, int prioridad){
-		if(!this.estaVacia()){
-			Nodo nodotarea = this.getCabeza();
+		if(!this.vacia()){
+			NodoDobleEnlace nodotarea = this.getCabeza();
 			for(int i = 1; i < indice; i++){
 				nodotarea = nodotarea.getSiguiente();
 			}
@@ -153,21 +212,23 @@ public class ListaEnlazadaTareas {
 			nodotarea.getTarea().setDescripcion(descripcion);
 			nodotarea.getTarea().setFecha(fecha);
 			nodotarea.getTarea().setPrioridad(prioridad);
-		}else{
+		}
+		else{
 			System.out.println("No hay tareas para modificar");
 		}
 	}
-
+	
 	public void verTarea(int indice){
-		if(!this.estaVacia()){
+		if(!this.vacia()){
 			int i = 0;
-			Nodo nodotarea = this.getCabeza();
+			NodoDobleEnlace nodotarea = this.getCabeza();
 			while(i <= indice){
 				nodotarea = nodotarea.getSiguiente();
 				i++;
 			}
 			System.out.println(indice+" | "+nodotarea.getTarea().getTitulo()+" | "+nodotarea.getTarea().getDescripcion()+" | "+nodotarea.getTarea().getFecha()+" | "+nodotarea.getTarea().getPrioridad());
-		}else{
+		}
+		else{
 			System.out.println("No hay tareas para ver");
 		}
 	}

@@ -4,14 +4,14 @@ import java.util.Scanner;
 public class Historial{
 //Implementación pila usando referencias
 
-  public Nodo cabeza;
+  public NodoDobleEnlace cabeza;
 
   public Historial(){
     this.cabeza = null;
   }
 
   public void insert(Tarea tarea){
-    Nodo nElemento = new Nodo(tarea);
+    NodoDobleEnlace nElemento = new NodoDobleEnlace(tarea);
     if (this.isEmpty()){
       cabeza = nElemento;
     }else{
@@ -26,7 +26,7 @@ public class Historial{
   }
 
   public void printHistorial(){
-    Nodo elemento = cabeza;
+    NodoDobleEnlace elemento = cabeza;
     System.out.println("Historial de Tareas Completas:");
     while(elemento != null){
       System.out.println( "* "  + elemento.getTarea().getTitulo() + "\t\t" + elemento.getTarea().getFecha() + "\t\t"+ elemento.getTarea().getDescripcion() +"\t \t"+ elemento.getTarea().getPrioridad());
@@ -49,7 +49,7 @@ public class Historial{
   }
 
   public Tarea buscarTarea(String t){
-    Nodo el=cabeza;
+    NodoDobleEnlace el=cabeza;
     while(el!=null){
       if(el.getTarea().getTitulo().equals(t)){
         return el.getTarea();
