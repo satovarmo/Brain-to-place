@@ -162,10 +162,10 @@ public final class MotorInterfaz {
         primerPanel.setBackground(new Color(90,160,255));
 
 
-        Dia.addItem("Día");
+        Dia.addItem("D\u00eda");
 
         Mes.addItem("Mes");
-        Ano.addItem("Año");
+        Ano.addItem("A\u00f1o");
         Prioridad.addItem("Prioridad");
         for(int j=1;j<=12;j++){
             Mes.addItem(j);
@@ -342,7 +342,7 @@ public final class MotorInterfaz {
         quejasSugerencias.removeActionListener(evt);
         quejasSugerencias.addActionListener(evt);
         quejasSugerencias.setIcon(new ImageIcon(iconoQuejas.getScaledInstance(50,50, EXIT_ON_CLOSE)));
-        quejasSugerencias.setText("Añade tu queja");
+        quejasSugerencias.setText("A\u00f1ade tu queja");
 
 
     }
@@ -354,7 +354,7 @@ public final class MotorInterfaz {
         primerPanel.add(Titulo);
 
         tituloTarea.setBounds(150,150,270,30);
-        tituloTarea.setText("Ingresa el título de tu tarea");
+        tituloTarea.setText("Ingresa el t\u00edtulo de tu tarea");
         tituloTarea.setFont(new Font("Comic Sans MS",0,20));
         tituloTarea.setBorder(null);
         tituloTarea.setBackground(null);
@@ -371,7 +371,7 @@ public final class MotorInterfaz {
         primerPanel.add(SeparadorN);
 
         descripcionTarea.setBounds(135,270,300,100);
-        descripcionTarea.setText("Ingresa la descripción de tu\n                   tarea");
+        descripcionTarea.setText("Ingresa la descripci\u00f3n de tu\n                   tarea");
         descripcionTarea.setLineWrap(true);
         descripcionTarea.setFont(new Font("Comic Sans MS",0,20));
         descripcionTarea.setBorder(null);
@@ -696,9 +696,9 @@ public final class MotorInterfaz {
     }
 
     public void ReiniciarIngTarea(){
-        tituloTarea.setText("Ingresa el título de tu tarea");
+        tituloTarea.setText("Ingresa el t\u00edtulo de tu tarea");
         tituloTarea.setForeground(Color.white);
-        descripcionTarea.setText("Ingresa la descripción de tu\n                   tarea");
+        descripcionTarea.setText("Ingresa la descripci\u00f3n de tu\n                   tarea");
         descripcionTarea.setForeground(Color.white);
         dias(0);
         Mes.setSelectedIndex(0);
@@ -708,7 +708,7 @@ public final class MotorInterfaz {
     public void ReiniciarIngQueja(){
         usuarioQueja.setText("Ingresa el usuario");
         usuarioQueja.setForeground(Color.white);
-        descripcionQueja.setText("Ingresa la descripción de tu\n                   queja");
+        descripcionQueja.setText("Ingresa la descripci\u00f3n de tu\n                   queja");
         descripcionQueja.setForeground(Color.white);
     }
 
@@ -831,7 +831,7 @@ public final class MotorInterfaz {
         panelQueja.add(SeparadorN);
 
         descripcionQueja.setBounds(100,170,300,100);
-        descripcionQueja.setText("Ingresa la descripción de tu\n                   queja");
+        descripcionQueja.setText("Ingresa la descripci\u00f3n de tu\n                   queja");
         descripcionQueja.setLineWrap(true);
         descripcionQueja.setFont(new Font("Comic Sans MS",0,20));
         descripcionQueja.setBorder(null);
