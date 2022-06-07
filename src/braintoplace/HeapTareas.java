@@ -50,6 +50,15 @@ public class HeapTareas {
     //     }
     //     return Math.pow(result, 1/size);
     // }
+    
+    public void completarTarea(int indice, Historial historial){
+		if(!this.estaVacio()){
+			historial.insert(heapArray.get(indice));
+            this.delete(indice);
+		}else{
+			System.out.println("No hay tareas para completar");
+		}
+	}
 
     public Tarea extractMax(){
         Tarea max = heapArray.get(0);
