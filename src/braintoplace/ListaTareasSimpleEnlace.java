@@ -81,6 +81,12 @@ public class ListaTareasSimpleEnlace {
 		}
 	}
 	
+
+	public void completarIndice(int indice, Historial historia) {
+		historia.insert(extraerIndice(indice).getTarea());
+		removerIndice(indice);
+	}
+	
 	public NodoSimpleEnlace getCabeza() {
 		return cabeza;
 	}
@@ -90,7 +96,7 @@ public class ListaTareasSimpleEnlace {
 	
 	//otros metodos x revisar
 	
-	
+	/*
 	public void imprimirListaEnlazada(NodoDobleEnlace puntero) {
 		if(puntero != null) {
 			if(puntero != cabeza) {
@@ -232,4 +238,6 @@ public class ListaTareasSimpleEnlace {
 			System.out.println("No hay tareas para ver");
 		}
 	}
+	
+	*/
 }

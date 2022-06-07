@@ -13,7 +13,6 @@ public class Tarea {
 	//private int Prioridad3;
 
 	public Tarea(String titulo, String descripcion, Fecha fecha, int prioridad) {
-
 		setTitulo(titulo);
 		setDescripcion(descripcion);
 		setFecha(fecha);

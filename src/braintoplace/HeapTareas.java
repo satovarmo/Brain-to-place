@@ -87,7 +87,7 @@ public class HeapTareas {
     }
 
     public void siftDown(int index){
-        //Si el nÃºmero en pos mÃ¡x es menor que sus hijos se hace un siftdown
+        //Si el número en pos máx es menor que sus hijos se hace un siftdown
         try {
             if (heapArray.get(index).getPrioridad() < heapArray.get(getIzqChild(index)).getPrioridad() || heapArray.get(index).getPrioridad() < heapArray.get(getDerChild(index)).getPrioridad()) {
  

@@ -2,12 +2,43 @@ import Interfaz.MotorInterfaz;
 import braintoplace.Fecha;
 import braintoplace.HeapTareas;
 import braintoplace.Tarea;
+import braintoplace.Test2Entrega;
 
 import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
+		
+		Test2Entrega test = new Test2Entrega();
 
+		int numero = 1250000;
+		int contador1 = 0;
+		
+		while(contador1 < 8){
+			System.out.println();
+			System.out.println("Numero :"+numero);
+			
+			int contador2 = 0;
+			
+			while(contador2 < 20) {
+				
+				//test.testAgregarTareaListaDoble(numero);
+				//test.testAgregarTareaListaSimple(numero);
+				//test.testAgregarTareaArbolHeap(numero);
+				
+				//test.testCompletarTareaListaDoble(numero);
+				//test.testCompletarTareaListaSimple(numero);
+				test.testCompletarTareaArbolHeap(numero);
+				
+				contador2++;
+			}
+			numero += 1250000;
+		}
+		
+		
+		
+		
+		/*
 		HeapTareas priorizador = new HeapTareas();
 		Tarea t1 = new Tarea("Taller 2", "", new Fecha(), 2);
 		Tarea t2 = new Tarea("Evaluación 1", "", new Fecha(), 4);
@@ -21,7 +52,7 @@ public class Main {
 		priorizador.insert(t5);
 		priorizador.print();
 		MotorInterfaz mot = new MotorInterfaz();
-		/*
+		
 		ListaEnlazadaTareas tareas = new ListaEnlazadaTareas();
 		Historial historial = new Historial();
                 ColaQuejasSugerencias ColaQyS=new ColaQuejasSugerencias();
