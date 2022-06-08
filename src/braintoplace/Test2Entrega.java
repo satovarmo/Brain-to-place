@@ -1,8 +1,49 @@
 package braintoplace;
 
+import java.nio.charset.Charset;
+import java.util.Random;
+
 public class Test2Entrega {
 
-	
+	public static void testAgregarTareaListaDobleRandom(int iteraciones) {
+		ListaTareasDobleEnlace listaTest = new ListaTareasDobleEnlace();
+		int contador = 0;
+		long tiempoTotal = 0;
+		while(contador < iteraciones) {
+			int randomNum = (int)(Math.random() * 6);  // 0 to 5
+			
+			byte[] array = new byte[7]; // length is bounded by 7
+		    new Random().nextBytes(array);
+		    String generatedString = new String(array, Charset.forName("UTF-8"));
+		    String generatedString2 = new String(array, Charset.forName("UTF-8"));
+			
+			Fecha fechaTest = new Fecha(31,8,1993);
+			Tarea tareaTest = new Tarea(generatedString,generatedString2,fechaTest,randomNum);
+			long tiempoInicial = System.nanoTime();
+			listaTest.agregarNodoInicio(tareaTest);
+			long tiempoFinal = System.nanoTime();
+			tiempoTotal += tiempoFinal-tiempoInicial;
+			contador++;
+		}
+		System.out.println(tiempoTotal);
+	}
+	public static void testAgregarTareaListaDobleFull(int iteraciones) {
+		ListaTareasDobleEnlace listaTest = new ListaTareasDobleEnlace();
+		int contador = 0;
+		long tiempoTotal = 0;
+		while(contador < iteraciones) {
+			Fecha fechaTest = new Fecha(31,8,1993);
+			Tarea tareaTest = new Tarea("tituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTesttituloTest"
+										,"descripcionTestdescripcionTestdescripcionTestdescripcionTestdescripcionTestdescripcionTestdescripcionTestdescripcionTestdescripcionTestdescripcionTestdescripcionTestdescripcionTestdescripcionTestdescripcionTestdescripcionTestdescripcionTestdescripcionTestdescripcionTest"
+										,fechaTest,5);
+			long tiempoInicial = System.nanoTime();
+			listaTest.agregarNodoInicio(tareaTest);
+			long tiempoFinal = System.nanoTime();
+			tiempoTotal += tiempoFinal-tiempoInicial;
+			contador++;
+		}
+		System.out.println(tiempoTotal);
+	}
 	
 	public static void testAgregarTareaListaDoble(int iteraciones) {
 		ListaTareasDobleEnlace listaTest = new ListaTareasDobleEnlace();
@@ -10,7 +51,7 @@ public class Test2Entrega {
 		long tiempoTotal = 0;
 		while(contador < iteraciones) {
 			Fecha fechaTest = new Fecha(31,8,1993);
-			Tarea tareaTest = new Tarea("tituloTest","descripcionTest",fechaTest,5);
+			Tarea tareaTest = new Tarea("tituloTest","decpTest",fechaTest,5);
 			long tiempoInicial = System.nanoTime();
 			listaTest.agregarNodoInicio(tareaTest);
 			long tiempoFinal = System.nanoTime();
@@ -95,21 +136,20 @@ public class Test2Entrega {
 		System.out.println(tiempoTotal);
 	}
 	public static void testCompletarTareaArbolHeap(int iteraciones) {
-		ListaTareasSimpleEnlace listaTest = new ListaTareasSimpleEnlace();
+		HeapTareas arbolTest = new HeapTareas();
 		Historial historialTest = new Historial();
 		int contador1 = 0;
 		while(contador1 < iteraciones) {
 			Fecha fechaTest = new Fecha(31,8,1993);
 			Tarea tareaTest = new Tarea("tituloTest","descripcionTest",fechaTest,5);
-			NodoSimpleEnlace nodoTest = new NodoSimpleEnlace(tareaTest);
-			listaTest.agregarPrincipio(nodoTest);
+			arbolTest.insert(tareaTest);
 			contador1++;
 		}
 		int contador2 = 0;
 		long tiempoTotal = 0;
 		while(contador2 < iteraciones) {
 			long tiempoInicial = System.nanoTime();
-			listaTest.completarIndice(1,historialTest);
+			arbolTest.completarTarea(1,historialTest);
 			long tiempoFinal = System.nanoTime();
 			tiempoTotal += tiempoFinal-tiempoInicial;
 			contador2++;

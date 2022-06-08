@@ -21,6 +21,10 @@ public class HeapTareas {
     public int getDerChild(int key){
         return 2 * key + 2;
     }
+    
+    public boolean estaVacio(){
+        return this.size == 0;
+    }
 
     //Intercambiando nodos
     public void swap(int first, int second)
@@ -69,7 +73,7 @@ public class HeapTareas {
     }
 
     public void delete(int index){
-        System.out.println("Deleted:" + heapArray.get(index));
+        //System.out.println("Deleted:" + heapArray.get(index));
         heapArray.set(index, heapArray.get(size-1));
         size--;
         siftDown(index);

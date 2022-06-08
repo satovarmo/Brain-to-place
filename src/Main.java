@@ -16,23 +16,28 @@ public class Main {
 		
 		while(contador1 < 8){
 			System.out.println();
-			System.out.println("Numero :"+numero);
+			System.out.println("Numero: "+numero);
 			
 			int contador2 = 0;
 			
 			while(contador2 < 20) {
 				
+				test.testAgregarTareaListaDobleRandom(numero);
+				//test.testAgregarTareaListaDobleFull(numero);
 				//test.testAgregarTareaListaDoble(numero);
+				
+				
 				//test.testAgregarTareaListaSimple(numero);
 				//test.testAgregarTareaArbolHeap(numero);
 				
 				//test.testCompletarTareaListaDoble(numero);
 				//test.testCompletarTareaListaSimple(numero);
-				test.testCompletarTareaArbolHeap(numero);
+				//test.testCompletarTareaArbolHeap(numero);
 				
 				contador2++;
 			}
 			numero += 1250000;
+			contador1++;
 		}
 		
 		
