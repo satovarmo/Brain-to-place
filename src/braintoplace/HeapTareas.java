@@ -59,7 +59,8 @@ public class HeapTareas {
 		if(!this.estaVacio()){
 			historial.insert(heapArray.get(indice));
             this.delete(indice);
-		}else{
+		}
+		else{
 			System.out.println("No hay tareas para completar");
 		}
 	}

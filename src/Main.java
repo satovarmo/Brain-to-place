@@ -2,27 +2,28 @@ import Interfaz.MotorInterfaz;
 import braintoplace.Fecha;
 import braintoplace.HeapTareas;
 import braintoplace.Tarea;
-import braintoplace.Test2Entrega;
+import braintoplace.Test3raEntrega;
 
 import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
 		
-		Test2Entrega test = new Test2Entrega();
+		Test3raEntrega test = new Test3raEntrega();
 
-		int numero = 1250000;
-		int contador1 = 0;
+		int numero = 1;
 		
-		while(contador1 < 8){
+		while(numero <= 5000011){
 			System.out.println();
 			System.out.println("Numero: "+numero);
 			
 			int contador2 = 0;
 			
-			while(contador2 < 20) {
+			while(contador2 < 15) {
 				
-				test.testAgregarTareaListaDobleRandom(numero);
+				
+				//Estos 3 Tes dan cuenta de la velocidad comparada de rellenar de manera aleatoria o con datos cortos o alargados
+				//test.testAgregarTareaListaDobleRandom(numero);
 				//test.testAgregarTareaListaDobleFull(numero);
 				//test.testAgregarTareaListaDoble(numero);
 				
@@ -34,10 +35,11 @@ public class Main {
 				//test.testCompletarTareaListaSimple(numero);
 				//test.testCompletarTareaArbolHeap(numero);
 				
+				test.testHash(numero);
+				
 				contador2++;
 			}
-			numero += 1250000;
-			contador1++;
+			numero += 166667;
 		}
 		
 		

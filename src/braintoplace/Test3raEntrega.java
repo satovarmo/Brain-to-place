@@ -3,7 +3,7 @@ package braintoplace;
 import java.nio.charset.Charset;
 import java.util.Random;
 
-public class Test2Entrega {
+public class Test3raEntrega {
 
 	public static void testAgregarTareaListaDobleRandom(int iteraciones) {
 		ListaTareasDobleEnlace listaTest = new ListaTareasDobleEnlace();
@@ -149,14 +149,29 @@ public class Test2Entrega {
 		long tiempoTotal = 0;
 		while(contador2 < iteraciones) {
 			long tiempoInicial = System.nanoTime();
-			arbolTest.completarTarea(1,historialTest);
+			arbolTest.completarTarea(0,historialTest);
 			long tiempoFinal = System.nanoTime();
 			tiempoTotal += tiempoFinal-tiempoInicial;
 			contador2++;
 		}
 		System.out.println(tiempoTotal);
 	}
-	
+
+	public static void testHash(int iteraciones) {
+		Hasher hasherTest = new Hasher();
+		int contador1 = 0;
+		long tiempoTotal = 0;
+		while(contador1 < iteraciones) {
+			String UsuarioTest = "I7sfs98fs0znb65v";
+			String ContrasenaTest = "2f98cvcas890a22jkl4567v32";
+			long tiempoInicial = System.nanoTime();
+			hasherTest.insert(UsuarioTest,ContrasenaTest);
+			long tiempoFinal = System.nanoTime();
+			tiempoTotal += tiempoFinal-tiempoInicial;
+			contador1++;
+		}
+		System.out.println(tiempoTotal);
+	}
 	
 	/*
 	public static void testCompletarTareaArbolHeap(int iteraciones) {
