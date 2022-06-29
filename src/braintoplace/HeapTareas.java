@@ -15,6 +15,10 @@ public class HeapTareas {
         return this.size == 0;
     }
 
+    public int getSize(){
+        return size;
+    }
+
     public int padre(int key) {
         return (key - 1) / 2;
     }
@@ -63,6 +67,23 @@ public class HeapTareas {
         size--;
         siftDown(0);
         return max; 
+    }
+
+    public Tarea find(int index){
+        return heapArray.get(index);
+    }
+
+    public int index(String tarea){
+        ordenarDescendente();
+        int index = -1;
+        if(!this.estaVacio()){
+            int i = 0;
+            while(!heapArray.get(i).getTitulo().equals(tarea)){
+                i++;
+            }
+            index = i;
+        }
+        return index;
     }
 
     public void delete(int index){

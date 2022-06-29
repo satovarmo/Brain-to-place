@@ -29,6 +29,7 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public final class MotorInterfaz {
     ListaEnlazadaTareas listaTareas = new ListaEnlazadaTareas();
+    HeapTareas heapTareas = new HeapTareas();
     Historial historial=new Historial();
     ColaQuejasSugerencias QuejaSug=new ColaQuejasSugerencias();
     List<QuejaSugerencia> listaQuejas;
@@ -722,20 +723,32 @@ public final class MotorInterfaz {
         panelTareas.setLayout(null);
         panelTareas.setBackground(new Color(90,160,255));
 
-        Nodo nodotarea = listaTareas.getCabeza();
-        int indice=1;
-        while(nodotarea != null){
-            JRadioButton jrb = new JRadioButton(nodotarea.getTarea().getTitulo());
+        // Nodo nodotarea = listaTareas.getCabeza();
+        // int indice=1;
+        // while(nodotarea != null){
+        //     JRadioButton jrb = new JRadioButton(nodotarea.getTarea().getTitulo());
+        //     jrb.setForeground(Color.black);
+        //     jrb.setFont(new Font("Comic Sans MS",0,20));
+        //     jrb.setBounds(40,35*indice,250,30);
+        //     jrb.setBackground(null);
+        //     bg.add(jrb);
+        //     panelTareas.add(jrb);
+        //     nodotarea=nodotarea.getSiguiente();
+        //     indice++;
+        // }
+
+        // Heap de tareas
+
+        heapTareas.ordenarDescendente();
+        for(int i = 0; i < heapTareas.getSize(); i++){
+            JRadioButton jrb = new JRadioButton(heapTareas.find(i).getTitulo());
             jrb.setForeground(Color.black);
             jrb.setFont(new Font("Comic Sans MS",0,20));
-            jrb.setBounds(40,35*indice,250,30);
+            jrb.setBounds(40,35*i,250,30);
             jrb.setBackground(null);
             bg.add(jrb);
             panelTareas.add(jrb);
-            nodotarea=nodotarea.getSiguiente();
-            indice++;
         }
-
         panelTareas.setBorder(null);
         primerPanel.add(panelTareas);
     }

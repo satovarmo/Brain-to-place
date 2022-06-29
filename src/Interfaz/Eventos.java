@@ -54,31 +54,51 @@ public class Eventos implements ActionListener, FocusListener{
                 JOptionPane.showMessageDialog(null, "Por favor rellene todos los campos");
             }else{
                 Tarea tarea = new Tarea(motint.tituloTarea.getText(), motint.descripcionTarea.getText(), new Fecha((int) motint.Dia.getSelectedItem(),(int) motint.Mes.getSelectedItem(),(int) motint.Ano.getSelectedItem()), (int) motint.Prioridad.getSelectedItem());
-                motint.listaTareas.agregarNodoInicio(tarea);
+                // motint.listaTareas.agregarNodoInicio(tarea);
+                motint.heapTareas.insert(tarea); // <--- Heap de tareas
                 motint.ReiniciarIngTarea();
             }
         }
         if(e.getSource()==motint.prueba){
-            motint.listaTareas.printLista();
+            // motint.listaTareas.printLista();
+            motint.heapTareas.print(); // <--- Heap de tareas
             motint.CambiarPantalla(1);
         }
 
         if(e.getSource()==motint.eliminarTarea){
-            if(!motint.listaTareas.estaVacia()){
-                motint.CambiarPantalla(3);
+            // if(!motint.listaTareas.estaVacia()){
+            //     motint.CambiarPantalla(3);
+            // }else
+            //     JOptionPane.showMessageDialog(null, "Tu lista de tareas est\u00e1 vacía, no puedes eliminar.");
+            
+            //  v Heap de Tareas
+            if(!motint.heapTareas.estaVacio()){
+                    motint.CambiarPantalla(3);
             }else
-                JOptionPane.showMessageDialog(null, "Tu lista de tareas est\u00e1 vacía, no puedes eliminar.");
+                    JOptionPane.showMessageDialog(null, "Tu lista de tareas est\u00e1 vacía, no puedes eliminar.");
 
         }
         if(e.getSource()==motint.eliminar){
             for (Enumeration<AbstractButton> buttons = motint.bg.getElements(); buttons.hasMoreElements();) {
                 AbstractButton button = buttons.nextElement();
+                // if (button.isSelected()) {
+                //     int i=motint.listaTareas.buscarTarea(button.getText());
+                //     motint.listaTareas.eliminarTarea(i);
+                //     motint.ImprimirTareasSelc();
+                //     motint.ventana.repaint();
+                //     if(motint.listaTareas.estaVacia()){
+                //         JOptionPane.showMessageDialog(null, "Has eliminado el último elemento, no puedes eliminar más.");
+                //         motint.CambiarPantalla(1);
+                //     }
+                // }
+                
+                // v Heap de Tareas
                 if (button.isSelected()) {
-                    int i=motint.listaTareas.buscarTarea(button.getText());
-                    motint.listaTareas.eliminarTarea(i);
+                    int i=motint.heapTareas.index(button.getText());
+                    motint.heapTareas.delete(i);
                     motint.ImprimirTareasSelc();
                     motint.ventana.repaint();
-                    if(motint.listaTareas.estaVacia()){
+                    if(motint.heapTareas.estaVacio()){
                         JOptionPane.showMessageDialog(null, "Has eliminado el último elemento, no puedes eliminar más.");
                         motint.CambiarPantalla(1);
                     }
@@ -86,7 +106,13 @@ public class Eventos implements ActionListener, FocusListener{
             }
         }
         if(e.getSource()==motint.completarTarea){
-            if(!motint.listaTareas.estaVacia()){
+            // if(!motint.listaTareas.estaVacia()){
+            //     motint.CambiarPantalla(4);
+            // }else
+            //     JOptionPane.showMessageDialog(null, "Tu lista de tareas est\u00e1 vacía, no puedes completar ninguna.");
+                
+            // v Heap de Tareas
+            if(!motint.heapTareas.estaVacio()){
                 motint.CambiarPantalla(4);
             }else
                 JOptionPane.showMessageDialog(null, "Tu lista de tareas est\u00e1 vacía, no puedes completar ninguna.");
@@ -95,12 +121,24 @@ public class Eventos implements ActionListener, FocusListener{
         if(e.getSource()==motint.completar){
             for (Enumeration<AbstractButton> buttons = motint.bg.getElements(); buttons.hasMoreElements();) {
                 AbstractButton button = buttons.nextElement();
+                // if (button.isSelected()) {
+                //     int i=motint.listaTareas.buscarTarea(button.getText());
+                //     motint.listaTareas.completarTarea(i, motint.historial);
+                //     motint.ImprimirTareasSelc();
+                //     motint.ventana.repaint();
+                //     if(motint.listaTareas.estaVacia()){
+                //         JOptionPane.showMessageDialog(null, "Has completado todas tus tareas. ¡Felicitaciones!.");
+                //         motint.CambiarPantalla(1);
+                //     }
+                // }
+
+                // v Heap de Tareas
                 if (button.isSelected()) {
-                    int i=motint.listaTareas.buscarTarea(button.getText());
-                    motint.listaTareas.completarTarea(i, motint.historial);
+                    int i=motint.heapTareas.index(button.getText());
+                    motint.heapTareas.completarTarea(i, motint.historial);
                     motint.ImprimirTareasSelc();
                     motint.ventana.repaint();
-                    if(motint.listaTareas.estaVacia()){
+                    if(motint.heapTareas.estaVacio()){
                         JOptionPane.showMessageDialog(null, "Has completado todas tus tareas. ¡Felicitaciones!.");
                         motint.CambiarPantalla(1);
                     }
@@ -108,18 +146,32 @@ public class Eventos implements ActionListener, FocusListener{
             }
         }
         if(e.getSource()==motint.modificarTarea){
-            if(!motint.listaTareas.estaVacia()){
+            // if(!motint.listaTareas.estaVacia()){
+            //     motint.CambiarPantalla(5);
+            // }else
+            //     JOptionPane.showMessageDialog(null, "Tu lista de tareas esta� vacia, no puedes modificar ninguna.");
+
+            // v heap de tareas
+            if(!motint.heapTareas.estaVacio()){
                 motint.CambiarPantalla(5);
             }else
-                JOptionPane.showMessageDialog(null, "Tu lista de tareas esta� vacia, no puedes modificar ninguna.");
+                JOptionPane.showMessageDialog(null, "Tu lista de tareas esta� vacia, no puedes modificar ninguna.");
 
         }
         if(e.getSource()==motint.ElegirModificar){
             for (Enumeration<AbstractButton> buttons = motint.bg.getElements(); buttons.hasMoreElements();) {
                 AbstractButton button = buttons.nextElement();
+                // if (button.isSelected()) {
+                //     indexModificacion=motint.listaTareas.buscarTarea(button.getText());
+                //     Tarea t=motint.listaTareas.buscarTareaConIndice(indexModificacion);
+                //     motint.ModificarTarea(t);
+                //     motint.ventana.repaint();
+                // }
+
+                // v Heap de tareas
                 if (button.isSelected()) {
-                    indexModificacion=motint.listaTareas.buscarTarea(button.getText());
-                    Tarea t=motint.listaTareas.buscarTareaConIndice(indexModificacion);
+                    indexModificacion=motint.heapTareas.index(button.getText());
+                    Tarea t=motint.heapTareas.find(indexModificacion);
                     motint.ModificarTarea(t);
                     motint.ventana.repaint();
                 }
@@ -130,7 +182,13 @@ public class Eventos implements ActionListener, FocusListener{
                 JOptionPane.showMessageDialog(null, "Por favor rellene todos los campos");
             }else{
                 //tareas.modificarTarea(indice, titulo, descripcion, fecha, prioridad);
-                motint.listaTareas.modificarTarea(indexModificacion,motint.tituloTarea.getText(), motint.descripcionTarea.getText(), new Fecha((int) motint.Dia.getSelectedItem(),(int) motint.Mes.getSelectedItem(),(int) motint.Ano.getSelectedItem()), (int) motint.Prioridad.getSelectedItem());
+                // motint.listaTareas.modificarTarea(indexModificacion,motint.tituloTarea.getText(), motint.descripcionTarea.getText(), new Fecha((int) motint.Dia.getSelectedItem(),(int) motint.Mes.getSelectedItem(),(int) motint.Ano.getSelectedItem()), (int) motint.Prioridad.getSelectedItem());
+                // JOptionPane.showMessageDialog(null, "Tarea modificada");
+                // motint.ReiniciarIngTarea();
+                // motint.CambiarPantalla(5);
+
+                // v Heap de tareas
+                motint.heapTareas.modificarTarea(indexModificacion,motint.tituloTarea.getText(), motint.descripcionTarea.getText(), new Fecha((int) motint.Dia.getSelectedItem(),(int) motint.Mes.getSelectedItem(),(int) motint.Ano.getSelectedItem()), (int) motint.Prioridad.getSelectedItem());
                 JOptionPane.showMessageDialog(null, "Tarea modificada");
                 motint.ReiniciarIngTarea();
                 motint.CambiarPantalla(5);
@@ -138,7 +196,13 @@ public class Eventos implements ActionListener, FocusListener{
         }
 
         if(e.getSource()==motint.tareasPendientes){
-            if(!motint.listaTareas.estaVacia()){
+            // if(!motint.listaTareas.estaVacia()){
+            //     motint.CambiarPantalla(6);
+            // }else
+            //     JOptionPane.showMessageDialog(null, "Tu lista de tareas est\u00e1 vacía, no tienes tareas pendientes.");
+
+            // Heap de tareas
+            if(!motint.heapTareas.estaVacio()){
                 motint.CambiarPantalla(6);
             }else
                 JOptionPane.showMessageDialog(null, "Tu lista de tareas est\u00e1 vacía, no tienes tareas pendientes.");
@@ -147,8 +211,13 @@ public class Eventos implements ActionListener, FocusListener{
             for (Enumeration<AbstractButton> buttons = motint.bg.getElements(); buttons.hasMoreElements();) {
                 AbstractButton button = buttons.nextElement();
                 if (button.isSelected()) {
-                    int i=motint.listaTareas.buscarTarea(button.getText());
-                    Tarea t=motint.listaTareas.buscarTareaConIndice(i);
+                    // int i=motint.listaTareas.buscarTarea(button.getText());
+                    // Tarea t=motint.listaTareas.buscarTareaConIndice(i);
+                    // JOptionPane.showMessageDialog(null,t);
+
+                    // Heap de tareas
+                    int i=motint.heapTareas.index(button.getText());
+                    Tarea t=motint.heapTareas.find(i);
                     JOptionPane.showMessageDialog(null,t);
                 }
             }
